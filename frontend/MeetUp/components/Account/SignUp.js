@@ -49,12 +49,11 @@ export default function SignUp(props) {
 
 const styles = StyleSheet.create({
     signUpContainer: {
-    backgroundColor: 'black',
     paddingTop: 44,
     },
     message: {
     color: 'white',
-    fontSize: 26,
+    fontSize: 24,
     textAlign: 'center',
     },
     signUpForm: {

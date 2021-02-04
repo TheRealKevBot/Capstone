@@ -9,7 +9,7 @@ export default function App() {
     <SafeAreaView style={styles.app}>
     <View style={styles.app}>
       <View style={styles.headerContainer}>
-      <Text style={styles.headertext}>MeetUp</Text>
+        <Text style={styles.headertext}>MeetUp</Text>
       </View>
       <Main />    
       <StatusBar style="auto" />
@@ -24,12 +24,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   headerContainer: {
-    alignItems: 'center',
+    backgroundColor: 'slategrey',
   },
   headertext: {
-    color: 'white',
+    color: 'wheat',
     fontSize: 50,
     paddingTop: 44,
     paddingBottom: 22,
+    textAlign: 'center',
   },
 });
