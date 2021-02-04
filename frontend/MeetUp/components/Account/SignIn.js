@@ -36,7 +36,6 @@ export default function SignIn(props) {
 
 const styles = StyleSheet.create({
     signInContainer: {
-    backgroundColor: 'black',
     paddingTop: 44,
     },
     message: {
