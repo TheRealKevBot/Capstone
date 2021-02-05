@@ -15,9 +15,9 @@ export default function SignIn(props) {
             </View>
             <Text style={styles.logInText}>Password</Text>
             <View style={styles.input}>
-            <TextInput 
-                style={styles.logInInput} 
-            />
+                <TextInput 
+                    style={styles.logInInput} 
+                />
             </View>
             <View style={styles.verifyButton}>
                 <Button

@@ -7,13 +7,13 @@ import Main from './pages/Main'
 export default function App() {
   return (
     <SafeAreaView style={styles.app}>
-    <View style={styles.app}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.headertext}>MeetUp</Text>
+      <View style={styles.app}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headertext}>MeetUp</Text>
+        </View>
+        <Main />    
+        <StatusBar style="auto" />
       </View>
-      <Main />    
-      <StatusBar style="auto" />
-    </View>
     </SafeAreaView>
   );
 }

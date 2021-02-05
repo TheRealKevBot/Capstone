@@ -21,21 +21,21 @@ export default function SignUp(props) {
             </View>
             <Text style={styles.signUpText}>Password</Text>
             <View style={styles.input}>
-            <TextInput 
-                style={styles.signUpInput} 
-            />
+                <TextInput 
+                    style={styles.signUpInput} 
+                />
             </View>
             <Text style={styles.signUpText}>First Name</Text>
             <View style={styles.input}>
-            <TextInput 
-                style={styles.signUpInput} 
-            />
+                <TextInput 
+                    style={styles.signUpInput} 
+                />
             </View>
             <Text style={styles.signUpText}>Last Name</Text>
             <View style={styles.input}>
-            <TextInput 
-                style={styles.signUpInput} 
-            />
+                <TextInput 
+                    style={styles.signUpInput} 
+                />
             </View>
             <View style={styles.registerButton}>
                 <Button 

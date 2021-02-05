@@ -26,15 +26,14 @@ export default class Main extends Component {
 
     }
 
-
     render() {
         return (
             <ScrollView>
-            <View style={styles.mainContainer}>
-                <User user={this.state.user} friends={this.state.friends} groups={this.state.groups} />
-                <SignIn user={this.state.user} signIn={this.signIn} signUp={this.signUp} />
-                <SignUp user={this.state.user} signUp={this.signUp} />
-            </View>
+                <View style={styles.mainContainer}>
+                    <User user={this.state.user} friends={this.state.friends} groups={this.state.groups} />
+                    <SignIn user={this.state.user} signIn={this.signIn} signUp={this.signUp} />
+                    <SignUp user={this.state.user} signUp={this.signUp} />
+                </View>
             </ScrollView>
         )
     }
