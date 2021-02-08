@@ -1,50 +1,79 @@
 import React from 'react'
-import { TextInput, StyleSheet, Text, View, Button } from 'react-native';
+import { ScrollView, TextInput, StyleSheet, Text, View, Button } from 'react-native';
 
 export default function SignIn(props) {
+
+    const handleRegister = (event) => {
+        props.navigation.navigate('SignUp')
+    }
+
+    const handleVerify = (event) => {
+        props.navigation.navigate('Home')
+    }
    
     return (
-    <View style={styles.signInContainer}>
-        <Text style={styles.message}>Please Verify to Continue</Text>
-        <View style={styles.logInForm}>
-            <Text style={styles.logInText}>Username</Text>
-            <View style={styles.input}>
-                <TextInput 
-                    style={styles.logInInput} 
-                />
-            </View>
-            <Text style={styles.logInText}>Password</Text>
-            <View style={styles.input}>
-            <TextInput 
-                style={styles.logInInput} 
-            />
-            </View>
-            <View style={styles.verifyButton}>
-                <Button
-                    title='Authenticate'
-                />
-            </View>
-            <View style={styles.registerButton}>
-                <Button 
-                    title='Register'
-                />
-            </View>
-        </View>
-    </View>   
+        <ScrollView style={styles.main}>
+            <View style={styles.signInContainer}>
+                <Text style={styles.message1}>Welcome To MeetUp!</Text>
+                <Text style={styles.message2}>Please Verify to Continue</Text>
+                <View style={styles.logInForm}>
+                    <Text style={styles.logInText}>Username</Text>
+                    <View style={styles.input}>
+                        <TextInput 
+                            style={styles.logInInput} 
+                        />
+                    </View>
+                    <Text style={styles.logInText}>Password</Text>
+                    <View style={styles.input}>
+                        <TextInput 
+                            style={styles.logInInput} 
+                        />
+                    </View>
+                    <View style={styles.verifyButton}>
+                        <Button
+                            title='Authenticate'
+                            onPress={handleVerify}
+                        />
+                    </View>
+                    <View style={styles.registerButton}>
+                        <Button 
+                            title='Register'
+                            onPress={handleRegister}
+                        />
+                    </View>
+                </View>
+            </View>   
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    signInContainer: {
-    paddingTop: 44,
+    main: {
+        backgroundColor: 'black',
+        viewHeight: 100,
+        viewWidth: 100,
+        flex: 1,
     },
-    message: {
-    color: 'white',
-    fontSize: 26,
-    textAlign: 'center',
+    signInContainer: {
+        backgroundColor: 'black',
+        paddingTop: 44,
+        alignItems: 'center',
+        flex: 1,
+    },
+    message1: {
+        color: 'white',
+        fontSize: 26,
+        textAlign: 'center',
+        padding: 15,
+    },
+    message2: {
+        color: 'white',
+        fontSize: 20,
+        textAlign: 'center',
+        padding: 10,
     },
     logInForm: {
-        padding: 80,
+        padding: 40,
     },
     logInText: {
         textAlign: 'center',
@@ -64,9 +93,11 @@ const styles = StyleSheet.create({
     verifyButton: {
         paddingTop: 20,
         padding: 10,
+        width: 250,
     },
     registerButton: {
         padding: 10,
         paddingTop: 10,
+        width: 250,
     },
 });
