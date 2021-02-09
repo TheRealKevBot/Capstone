@@ -1,50 +1,63 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { ScrollView, TextInput, StyleSheet, Text, View, Button } from 'react-native';
 
-export default function SignIn(props) {
+export default class SignIn extends Component {
 
-    const handleRegister = (event) => {
-        props.navigation.navigate('SignUp')
+    state = {
+        username: '',
+        password: '',
     }
 
-    const handleVerify = (event) => {
-        props.navigation.navigate('Home')
+    handleRegister = (event) => {
+        this.props.navigation.navigate('SignUp')
+    }
+
+    handleVerify = (event) => {
+        this.props.navigation.navigate('Home')
     }
    
-    return (
-        <ScrollView style={styles.main}>
-            <View style={styles.signInContainer}>
-                <Text style={styles.message1}>Welcome To MeetUp!</Text>
-                <Text style={styles.message2}>Please Verify to Continue</Text>
-                <View style={styles.logInForm}>
-                    <Text style={styles.logInText}>Username</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.logInInput} 
-                        />
+    render() {
+        return (
+            <ScrollView style={styles.main}>
+                <View style={styles.signInContainer}>
+                    <Text style={styles.message1}>Welcome To MeetUp!</Text>
+                    <Text style={styles.message2}>Please Verify to Continue</Text>
+                    <View style={styles.logInForm}>
+                        <Text style={styles.logInText}>Username</Text>
+                        <View style={styles.input}>
+                            <TextInput 
+                                style={styles.logInInput}
+                                name="username"
+                                onChangeText={(username) => {this.setState({ username })}}
+                                value={this.state.username} 
+                            />
+                        </View>
+                        <Text style={styles.logInText}>Password</Text>
+                        <View style={styles.input}>
+                            <TextInput 
+                                style={styles.logInInput}
+                                name="password"
+                                onChangeText={(password) => {this.setState({ password })}}
+                                value={this.state.password} 
+                            />
+                        </View>
+                        <View style={styles.verifyButton}>
+                            <Button
+                                title='Authenticate'
+                                onPress={this.handleVerify}
+                            />
+                        </View>
+                        <View style={styles.registerButton}>
+                            <Button 
+                                title='Register'
+                                onPress={this.handleRegister}
+                            />
+                        </View>
                     </View>
-                    <Text style={styles.logInText}>Password</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.logInInput} 
-                        />
-                    </View>
-                    <View style={styles.verifyButton}>
-                        <Button
-                            title='Authenticate'
-                            onPress={handleVerify}
-                        />
-                    </View>
-                    <View style={styles.registerButton}>
-                        <Button 
-                            title='Register'
-                            onPress={handleRegister}
-                        />
-                    </View>
-                </View>
-            </View>   
-        </ScrollView>
-    )
+                </View>   
+            </ScrollView>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

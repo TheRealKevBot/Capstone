@@ -1,58 +1,84 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { ScrollView, TextInput, StyleSheet, Text, View, Button } from 'react-native';
 
-export default function SignUp(props) {
+export default class SignUp extends Component {
 
-    const handleRegister = (event) => {
-        props.navigation.navigate('Home')
+    state = {
+        username: '',
+        email: '',
+        password: '',
+        fName: '',
+        lName: '',
     }
-   
-    return (
-        <ScrollView style={styles.main}>
-            <View style={styles.signUpContainer}>
-                <Text style={styles.message1}>We appreciate your interest in MeetUp!</Text>
-                <Text style={styles.message2}>Please Complete to Continue</Text>
-                <View style={styles.signUpForm}>
-                    <Text style={styles.signUpText}>Username</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.signUpInput} 
-                        />
-                    </View>
-                    <Text style={styles.signUpText}>Email</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.signUpInput} 
-                        />
-                    </View>
-                    <Text style={styles.signUpText}>Password</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.signUpInput} 
-                        />
-                    </View>
-                    <Text style={styles.signUpText}>First Name</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.signUpInput} 
-                        />
-                    </View>
-                    <Text style={styles.signUpText}>Last Name</Text>
-                    <View style={styles.input}>
-                        <TextInput 
-                            style={styles.signUpInput} 
-                        />
-                    </View>
-                    <View style={styles.registerButton}>
-                        <Button 
-                            title='Register'
-                            onPress={handleRegister}
-                        />
-                    </View>
-                </View>
-            </View>   
-        </ScrollView>
-    )
+
+    handleRegister = (event) => {
+        this.props.signUp(this.state)
+        // this.props.navigation.navigate('Home')
+    }
+
+   render() {
+       return (
+           <ScrollView style={styles.main}>
+               <View style={styles.signUpContainer}>
+                   <Text style={styles.message1}>We appreciate your interest in MeetUp!</Text>
+                   <Text style={styles.message2}>Please Complete to Continue</Text>
+                   <View style={styles.signUpForm}>
+                       <Text style={styles.signUpText}>Username</Text>
+                       <View style={styles.input}>
+                           <TextInput 
+                               style={styles.signUpInput} 
+                               name='username'
+                               onChangeText={(username) => {this.setState({ username })}}
+                               value={this.state.username}
+                           />
+                       </View>
+                       <Text style={styles.signUpText}>Email</Text>
+                       <View style={styles.input}>
+                           <TextInput 
+                               style={styles.signUpInput}
+                               name='email'
+                               onChangeText={(email) => {this.setState({ email })}}
+                               value={this.state.email} 
+                           />
+                       </View>
+                       <Text style={styles.signUpText}>Password</Text>
+                       <View style={styles.input}>
+                           <TextInput 
+                               style={styles.signUpInput} 
+                               name='password'
+                               onChangeText={(password) => {this.setState({ password })}}
+                               value={this.state.password}
+                           />
+                       </View>
+                       <Text style={styles.signUpText}>First Name</Text>
+                       <View style={styles.input}>
+                           <TextInput 
+                               style={styles.signUpInput}
+                               name='fName'
+                               onChangeText={(fName) => {this.setState({ fName })}}
+                               value={this.state.fName} 
+                           />
+                       </View>
+                       <Text style={styles.signUpText}>Last Name</Text>
+                       <View style={styles.input}>
+                           <TextInput 
+                               style={styles.signUpInput}
+                               name='lName'
+                               onChangeText={(lName) => {this.setState({ lName })}}
+                               value={this.state.lName} 
+                           />
+                       </View>
+                       <View style={styles.registerButton}>
+                           <Button 
+                               title='Register'
+                               onPress={this.handleRegister}
+                           />
+                       </View>
+                   </View>
+               </View>   
+           </ScrollView>
+       )
+   }
 }
 
 const styles = StyleSheet.create({
