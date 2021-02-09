@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, TextInput, StyleSheet, Text, View, Button } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Button } from 'react-native';
 
 export default function User(props) {
 
@@ -9,8 +9,8 @@ export default function User(props) {
     const handleGroups = (event) => {
         props.navigation.navigate('Groups')
     }
-    const handleMessages = (event) => {
-        props.navigation.navigate('Messages')
+    const handleChats = (event) => {
+        props.navigation.navigate('Chats')
     }
     const handleAccount = (event) => {
         props.navigation.navigate('Account')
@@ -28,11 +28,11 @@ export default function User(props) {
                     </View>
                     <View style={styles.plansButton}>
                         <Button 
-                            title='Messages'
-                            onPress={handleMessages}
+                            title='Chats'
+                            onPress={handleChats}
                         />
                     </View>
-                    <View style={styles.plansButton}>
+                    <View style={styles.chatsButton}>
                         <Button 
                             title='Plans'
                             onPress={handlePlans}
@@ -68,6 +68,8 @@ const styles = StyleSheet.create({
     buttonsContainer: {
     },
     plansButton: {
+    },
+    chatsButton: {
     },
     groupsButton: {
     },

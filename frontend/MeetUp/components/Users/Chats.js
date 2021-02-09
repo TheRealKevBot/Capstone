@@ -1,16 +1,16 @@
 import React from 'react'
 import { TextInput, StyleSheet, Text, View, Button } from 'react-native';
 
-export default function Groups(props) {
+export default function Chats(props) {
     return (
-        <View style={styles.groupsContainer}>
-            <Text style={styles.welcome}>Welcome to your groups!</Text>  
+        <View style={styles.messagesContainer}>
+            <Text style={styles.welcome}>Welcome to your chats!</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    groupsContainer: {
+    messagesContainer: {
         backgroundColor: 'black',
         viewHeight: 100,
         viewWidth: 100,
@@ -23,4 +23,3 @@ const styles = StyleSheet.create({
         padding: 15,
     },
 });
-
