@@ -11,9 +11,17 @@ export default class SignUp extends Component {
         lName: '',
     }
 
-    handleRegister = (event) => {
+    handleRegister = () => {
         this.props.signUp(this.state)
-        // this.props.navigation.navigate('Home')
+    }
+
+    handleRedirect = () => {
+        this.props.navigation.navigate('Home')
+    }
+
+    combinedRegister = () => {
+        this.handleRegister()
+        this.handleRedirect()
     }
 
    render() {
@@ -71,7 +79,7 @@ export default class SignUp extends Component {
                        <View style={styles.registerButton}>
                            <Button 
                                title='Register'
-                               onPress={this.handleRegister}
+                               onPress={this.combinedRegister}
                            />
                        </View>
                    </View>
@@ -84,8 +92,8 @@ export default class SignUp extends Component {
 const styles = StyleSheet.create({
     main: {
         backgroundColor: 'black',
-        viewHeight: 100,
-        viewWidth: 100,
+        // viewHeight: 100,
+        // viewWidth: 100,
         flex: 1,
     },
     signUpContainer: {

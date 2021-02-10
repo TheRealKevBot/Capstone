@@ -45,7 +45,7 @@ export default function User(props) {
                         />
                     </View>
                 </View>
-                <Text style={styles.feedMessage}>My Feed</Text>
+                <Text style={styles.feedMessage}>{props.user.username}'s Feed</Text>
                 <View style={styles.feed}>
                     
                 </View>
@@ -57,8 +57,8 @@ export default function User(props) {
 const styles = StyleSheet.create({
     main: {
         backgroundColor: 'black',
-        viewHeight: 100,
-        viewWidth: 100,
+        // viewHeight: 100,
+        // viewWidth: 100,
         flex: 1,
     },
     userContainer: {
