@@ -12,8 +12,8 @@ export default function Chats(props) {
 const styles = StyleSheet.create({
     messagesContainer: {
         backgroundColor: 'black',
-        viewHeight: 100,
-        viewWidth: 100,
+        // viewHeight: 100,
+        // viewWidth: 100,
         flex: 1,
     },
     welcome: {

@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  before_action :set_chat, only: [:show, :update, :destroy]
+  # before_action :set_chat, only: [:show, :update, :destroy]
 
   # GET /chats
   def index

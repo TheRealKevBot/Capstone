@@ -12,8 +12,8 @@ export default function Account(props) {
 const styles = StyleSheet.create({
     accountContainer: {
         backgroundColor: 'black',
-        viewHeight: 100,
-        viewWidth: 100,
+        // viewHeight: 100,
+        // viewWidth: 100,
         flex: 1,
     },
     welcome: {

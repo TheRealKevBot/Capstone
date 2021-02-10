@@ -8,12 +8,21 @@ export default class SignIn extends Component {
         password: '',
     }
 
-    handleRegister = (event) => {
+    handleRegister = () => {
         this.props.navigation.navigate('SignUp')
     }
 
-    handleVerify = (event) => {
+    handleVerify = () => {
+        this.props.signIn(this.state.username, this.state.password)
+    }
+
+    handleRedirect = () => {
         this.props.navigation.navigate('Home')
+    }
+
+    combinedVerify = () => {
+        this.handleVerify()
+        this.handleRedirect()
     }
    
     render() {
@@ -41,10 +50,13 @@ export default class SignIn extends Component {
                                 value={this.state.password} 
                             />
                         </View>
+                        <View style={styles.error}> 
+                            {this.props.error ? <Text style={styles.errorText}>{this.props.error}</Text> : null }
+                        </View>
                         <View style={styles.verifyButton}>
                             <Button
                                 title='Authenticate'
-                                onPress={this.handleVerify}
+                                onPress={this.combinedVerify}
                             />
                         </View>
                         <View style={styles.registerButton}>
@@ -63,8 +75,8 @@ export default class SignIn extends Component {
 const styles = StyleSheet.create({
     main: {
         backgroundColor: 'black',
-        viewHeight: 100,
-        viewWidth: 100,
+        // viewHeight: 100,
+        // viewWidth: 100,
         flex: 1,
     },
     signInContainer: {

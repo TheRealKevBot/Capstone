@@ -12,8 +12,8 @@ export default function Groups(props) {
 const styles = StyleSheet.create({
     groupsContainer: {
         backgroundColor: 'black',
-        viewHeight: 100,
-        viewWidth: 100,
+        // viewHeight: 100,
+        // viewWidth: 100,
         flex: 1,
     },
     welcome: {
