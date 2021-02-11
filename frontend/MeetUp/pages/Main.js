@@ -4,6 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import PubNub from 'pubnub'
+import { PubNubProvider } from "pubnub-react";
+import PubNubReact from 'pubnub-react';
+
 import User from './User'
 import SignIn from '../components/Account/SignIn'
 import SignUp from '../components/Account/SignUp'
@@ -16,12 +20,16 @@ import AuthScreen from '../screens/AuthScreen'
 
 const Stack = createStackNavigator()
 
+const pubnub = new PubNub({
+    subscribeKey: "*",
+    publishKey: "*",
+    uuid: "0"
+  });
+
 export default class Main extends Component {
 
     state = {
         error: '',
-        friends: [],
-        groups: [],
         chats: [],
         user: {},
     }
@@ -111,29 +119,31 @@ export default class Main extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Stack.Navigator >
-                    <Stack.Screen name='SignIn'>
-                        {(stackProps) => <SignIn {...stackProps} user={this.state.user} signIn={this.signIn} signUp={this.signUp} error={this.state.error} /> }
-                    </Stack.Screen>
-                    <Stack.Screen name='SignUp'>
-                        {(stackProps) => <SignUp {...stackProps} user={this.state.user} signUp={this.signUp} /> }
-                    </Stack.Screen>
-                    <Stack.Screen name='Home'> 
-                        {(stackProps) => <User {...stackProps} user={this.state.user} /> }
-                    </Stack.Screen>
-                    <Stack.Screen name="Groups">
-                        {(stackProps) => <Groups {...stackProps} user={this.state.user} /> }
-                    </Stack.Screen>
-                    <Stack.Screen name='Chats'>
-                        {(stackProps) => <Chats {...stackProps} user={this.state.user} /> }
-                    </Stack.Screen>
-                    <Stack.Screen name='Plans'>
-                        {(stackProps) => <Plans {...stackProps} user={this.state.user} /> }
-                    </Stack.Screen>
-                    <Stack.Screen name='Account'>
-                        {(stackProps) => <Account {...stackProps} user={this.state.user} /> }
-                    </Stack.Screen>
-                </Stack.Navigator>
+                <PubNubProvider client={pubnub}>
+                    <Stack.Navigator >
+                        <Stack.Screen name='SignIn'>
+                            {(stackProps) => <SignIn {...stackProps} user={this.state.user} signIn={this.signIn} signUp={this.signUp} error={this.state.error} /> }
+                        </Stack.Screen>
+                        <Stack.Screen name='SignUp'>
+                            {(stackProps) => <SignUp {...stackProps} user={this.state.user} signUp={this.signUp} /> }
+                        </Stack.Screen>
+                        <Stack.Screen name='Home'> 
+                            {(stackProps) => <User {...stackProps} user={this.state.user} /> }
+                        </Stack.Screen>
+                        <Stack.Screen name="Groups">
+                            {(stackProps) => <Groups {...stackProps} user={this.state.user} /> }
+                        </Stack.Screen>
+                        <Stack.Screen name='Chats'>
+                            {(stackProps) => <Chats {...stackProps} user={this.state.user} /> }
+                        </Stack.Screen>
+                        <Stack.Screen name='Plans'>
+                            {(stackProps) => <Plans {...stackProps} user={this.state.user} /> }
+                        </Stack.Screen>
+                        <Stack.Screen name='Account'>
+                            {(stackProps) => <Account {...stackProps} user={this.state.user} /> }
+                        </Stack.Screen>
+                    </Stack.Navigator>
+                </PubNubProvider>
             </NavigationContainer>
         )
     }
